@@ -9,21 +9,10 @@ my_list = [1, 2, 3, 4, 5, 6, 7, 8]
 odd_index_elements = []
 even_index_elements = []
 
-odd_index = []
-odd_elements = []
-
-even_index = []
-even_elements = []
-
-for index in range(len(my_list)):
+for index, element in enumerate(my_list):
     if index % 2 != 0:
-        odd_index.append(index)
-        odd_elements.append(my_list[index])
-        odd_index_elements = list(zip(odd_index, odd_elements))
+        odd_index_elements.append((index, element))
     else:
-        even_index.append(index)
-        even_elements.append(my_list[index])
-        even_index_elements = list(zip(even_index, even_elements))
-
+        even_index_elements.append((index, element))
 print(f'odd index elements: {odd_index_elements}')
 print(f'even index elements: {even_index_elements}')
