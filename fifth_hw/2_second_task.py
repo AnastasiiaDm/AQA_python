@@ -7,7 +7,7 @@ import pickle
 import sys
 
 if __name__ == '__main__':
-    os.chdir("files")
+    os.chdir("./test/data")
     with open('byte_file', 'rb') as file:
         result_in_bytes = file.read()
 
@@ -15,10 +15,12 @@ if __name__ == '__main__':
 
     new_list = []
     for integers in result:
-        addition = integers[0] + integers[1] + integers[2]
-        subtraction = integers[0] - integers[1] - integers[2]
-        multiplication = integers[0] * integers[1] * integers[2]
-        math_result = (addition, subtraction, multiplication)
-        new_list.append(math_result)
+        if integers[2] == 1:
+            new_list.append(integers[0] + integers[1])
+        if integers[2] == 2:
+            new_list.append(integers[0] - integers[1])
+        if integers[2] == 3:
+            new_list.append(integers[0] * integers[1])
+
     math_result_in_str = str(new_list)
     print(sys.stderr.write(math_result_in_str))

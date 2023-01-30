@@ -23,10 +23,12 @@ import random
 my_list = []
 
 if __name__ == '__main__':
-    # os.mkdir("files")
-    os.chdir("./files")
     for _ in range(1, 101):
-        my_list.append((random.randrange(1, 100), random.randrange(1, 4), random.randrange(1, 100)))
+        my_list.append((random.randrange(1, 100), random.randrange(1, 100), random.randrange(1, 4)))
+    print(my_list)
+
+    os.makedirs("test/data")
+    os.chdir("./test/data")
 
     byte_numbers = pickle.dumps(my_list)
     with open('byte_file', 'w+b') as file:
