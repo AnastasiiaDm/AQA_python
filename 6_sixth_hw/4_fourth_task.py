@@ -8,7 +8,7 @@ if __name__ == '__main__':
         text_file = file.read()
 
 
-    def remove_numbers(text):
+    def remove_numbers(text: str) -> str:
         no_num_text = re.sub(r'\d+', "", text)
         return no_num_text
 
