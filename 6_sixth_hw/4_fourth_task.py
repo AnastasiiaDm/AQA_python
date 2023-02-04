@@ -3,15 +3,14 @@
 """
 import re
 
-if __name__ == '__main__':
-    with open("test_1.py", "r") as file:
+
+def remove_numbers_from_file(file_name):
+    with open(file_name, "r+") as file:
         text_file = file.read()
 
-
-    def remove_numbers(text: str) -> str:
-        no_num_text = re.sub(r'\d+', "", text)
-        return no_num_text
+    with open(file_name, "w") as file:
+        file.write(re.sub(r'\d+', "", text_file))
 
 
-    with open("test_1.py", "w") as file:
-        file.write(remove_numbers(text_file))
+if __name__ == '__main__':
+    remove_numbers_from_file("test_1.py")
