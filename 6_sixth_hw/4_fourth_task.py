@@ -4,7 +4,7 @@
 import re
 
 
-def remove_numbers_from_file(file_name):
+def remove_numbers_from_file(file_name: str):
     with open(file_name, "r+") as file:
         text_file = file.read()
 
