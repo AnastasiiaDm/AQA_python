@@ -1,5 +1,5 @@
 def arithmetic(left_operand: int, right_operand: int, operation: str) -> int or str or float:
-    """Apply arithmetic operation for provided left and right operand"""
+    """ Apply arithmetic operation for provided left and right operand """
     if operation == "+":
         add = left_operand + right_operand
         return add
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     assert arithmetic.__doc__
     assert arithmetic.__code__.co_name == "arithmetic"
     assert arithmetic.__code__.co_varnames == (
-    'left_operand', 'right_operand', 'operation', 'add', 'subtract', 'multiply', 'divide')
+        'left_operand', 'right_operand', 'operation', 'add', 'subtract', 'multiply', 'divide')
     try:
         arithmetic(1, 2, 3)
     except TypeError as e:
