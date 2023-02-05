@@ -5,6 +5,10 @@ from typing import Callable
 
 
 def multiply_by_2(data: list) -> list:
+    """
+    :param data: integers, floats, strings
+    :return: mapped list
+    """
     new_list = []
     for element in data:
         new_list.append(element * 2)
@@ -12,6 +16,11 @@ def multiply_by_2(data: list) -> list:
 
 
 def my_map(callback: Callable, data: list):
+    """
+    :param callback: data map
+    :param data: integers, floats, strings
+    :return: list of mapped elements
+    """
     return callback(data)
 
 
