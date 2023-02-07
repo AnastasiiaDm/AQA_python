@@ -5,7 +5,7 @@ def arithmetic(left_operand: int, right_operand: int, operation: str) -> int or 
     if operation == "+":
         return left_operand + right_operand
     if operation == "-":
-        return left_operand + right_operand
+        return left_operand - right_operand
     if operation == "*":
         return left_operand * right_operand
     if operation == "/":
