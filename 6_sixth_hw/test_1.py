@@ -1,6 +1,6 @@
 def arithmetic(left_operand: int, right_operand: int, operation: str) -> int or str or float:
     """
-        Apply arithmetic operation for provided left and right operand
+        Apply arithmetic operation for provided left and right operands
     """
     if operation == "+":
         return left_operand + right_operand
@@ -40,5 +40,3 @@ if __name__ == "__main__":
         arithmetic(1, right_operand=2, operation="+")
     except TypeError as e:
         assert e.__class__ is TypeError
-
-    print(arithmetic(2, 3 , "+"))
