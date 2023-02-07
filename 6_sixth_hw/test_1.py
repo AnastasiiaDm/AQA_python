@@ -3,17 +3,13 @@ def arithmetic(left_operand: int, right_operand: int, operation: str) -> int or 
         Apply arithmetic operation for provided left and right operand
     """
     if operation == "+":
-        add = left_operand + right_operand
-        return add
+        return left_operand + right_operand
     if operation == "-":
-        subtract = left_operand - right_operand
-        return subtract
+        return left_operand + right_operand
     if operation == "*":
-        multiply = left_operand * right_operand
-        return multiply
+        return left_operand * right_operand
     if operation == "/":
-        divide = left_operand / right_operand
-        return divide
+        return left_operand / right_operand
     else:
         return f"Not known operation: {operation}"
 
@@ -44,3 +40,5 @@ if __name__ == "__main__":
         arithmetic(1, right_operand=2, operation="+")
     except TypeError as e:
         assert e.__class__ is TypeError
+
+    print(arithmetic(2, 3 , "+"))
