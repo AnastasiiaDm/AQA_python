@@ -17,11 +17,11 @@ def find_max(data: list) -> tuple:
 
 
 def find_min(data: list) -> int or float:
-    max_element = data[0]
+    min_element = data[0]
     for element in data:
-        if element < max_element:
-            max_element = element
-    return max_element
+        if element < min_element:
+            min_element = element
+    return min_element
 
 
 def my_max_min(callback: Callable, data: list):

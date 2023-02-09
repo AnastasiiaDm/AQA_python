@@ -7,10 +7,6 @@ from typing import Callable
 
 
 def multiple_type_sort(data: str) -> tuple:
-    """
-    :param data: sting
-    :return: sorted data
-    """
     try:
         ele = int(data)
         return False, ele
