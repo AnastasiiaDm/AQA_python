@@ -23,3 +23,11 @@ if __name__ == '__main__':
     matches = pattern.sub(r'\1_\2', ','.join(variable_list)).lower()
     result = matches.split(',')
     print(result)
+
+# anoter way of solution2:
+new_list2 = []
+if __name__ == '__main__':
+    for name in variable_list:
+        some = re.sub(r"([A-Z][a-z]+)([A-Z][a-z]+)", r"\1_\2", name).lower()
+        new_list2.append(some)
+    print(new_list2)
