@@ -11,38 +11,64 @@ from datetime import date, timedelta, datetime
 class Apple:
     BRAND = "Apple"
 
-    def __init__(self, __website: str = "apple.com", __address: str = "silicone str"):
+    def __init__(self, __website: str, __address: str, __employees: int):
         self.__website = __website
         self.__address = __address
-        self.employees = 0
+        self.__employees = __employees
+
+    @property
+    def employees(self):
+        return self.__employees
+
+    @employees.setter
+    def employees(self, new_employees_amount: int):
+        self.__employees = new_employees_amount
 
     def new_employee(self, new_employees_num: int):
         """
         :param new_employees_num: update number of employees by the new employees
         :return: new number of employees
         """
-        self.employees += new_employees_num
-        return self.employees
+        self.__employees += new_employees_num
+        return self.__employees
 
     def fire_employee(self, fire_employees_num: int):
         """
         :param fire_employees_num: update number of employees by reduction of employees amount
         :return: new number of employees
         """
-        self.employees -= fire_employees_num
-        return self.employees
+        self.__employees -= fire_employees_num
+        return self.__employees
 
+    @property
     def website(self):
         """
         :return: website name
         """
         return self.__website
 
+    @website.setter
+    def website(self, new_website_page: str):
+        """
+        :param new_website_page: new website page value
+        :return: a new website page
+        """
+        self.__website = new_website_page
+
+    @property
     def address(self):
         """
         :return: address name
         """
         return self.__address
+
+    @address.setter
+    def address(self, new_address: str):
+        """
+        :param new_address: new address value
+        :return: new address
+        """
+        self.__address = new_address
 
     @staticmethod
     def business_days_per_current_year():
@@ -92,10 +118,14 @@ class Apple:
 
 
 if __name__ == '__main__':
-    apple = Apple()
+    apple = Apple("www", "some str", 1000)
     print(apple.BRAND)
-    print(apple.website())
-    print(apple.address())
+    print(apple.website)
+    apple.website = "apple.com"
+    print(apple.website)
+    print(apple.address)
+    apple.address = "silicone str"
+    print(apple.address)
     print(apple.employees)
     print(apple.new_employee(1))
     print(apple.new_employee(9))

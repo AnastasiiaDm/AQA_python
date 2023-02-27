@@ -20,47 +20,97 @@ class Employee:
         self.__hire_date = __hire_date
         self.__birth_date = __birth_date
 
-    def get_name(self):
+    @property
+    def name(self):
         """
         :return: employee name
         """
         return self.__name
 
-    def get_second_name(self):
+    @name.setter
+    def name(self, new_name: str):
+        """
+        :param new_name: new name value
+        :return: new name
+        """
+        self.__name = new_name
+
+    @property
+    def second_name(self):
         """
         :return: employee second name
         """
         return self.__second_name
 
-    def set_second_name(self, new_second_name: str):
+    @second_name.setter
+    def second_name(self, new_second_name: str):
         """
         :param new_second_name: change value
         :return: edited employee second name
         """
-        if isinstance(new_second_name, str):
-            self.__second_name = new_second_name
-        else:
-            return 'Second name change not supported'
+        self.__second_name = new_second_name
 
-    def get_gender(self):
+    @property
+    def gender(self):
         """
         :return: employee gender
         """
         return self.__gender
 
+    @gender.setter
+    def gender(self, new_gender: str):
+        """
+        :param new_gender: new gender value
+        :return: new gender
+        """
+        self.__gender = new_gender
+
+    @property
     def hire_date(self):
         """
         :return: employee hire date
         """
         return self.__hire_date
 
-    def get_salary(self):
+    @hire_date.setter
+    def hire_date(self, new_hire_date: str):
+        """
+        :param new_hire_date: new hire date value
+        :return: new hire date
+        """
+        self.__hire_date = new_hire_date
+
+    @property
+    def salary(self):
         """
         :return: employee salary
         """
         return self.__salary
 
-    def employee_age(self):
+    @salary.setter
+    def salary(self, new_salary: str):
+        """
+        :param new_salary: new salary value
+        :return: new salary
+        """
+        self.__salary = new_salary
+
+    @property
+    def birth_date(self):
+        """
+        :return: date of birth
+        """
+        return self.__birth_date
+
+    @birth_date.setter
+    def birth_date(self, new_birth_date: str):
+        """
+        :param new_birth_date: new date of birth value
+        :return: new date of birth
+        """
+        self.__birth_date = new_birth_date
+
+    def age(self):
         """
         :return: employee age
         """
@@ -88,11 +138,11 @@ class Employee:
 
 if __name__ == '__main__':
     mia = Employee('Mia', 'Ko', 'f', 2000, '2020-02-02', '1990-01-01')
-    print(mia.get_name())
-    print(mia.get_second_name())
-    mia.set_second_name('Fey')
-    print(mia.get_second_name())
-    print(mia.employee_age())
+    print(mia.name)
+    print(mia.second_name)
+    mia.second_name = 'Fey'
+    print(mia.second_name)
+    print(mia.age())
     print(mia.salary_with_new_year_bonus())
     print(mia.salary_evaluate(20))
-    print(mia.get_salary())
+    print(mia.salary)
