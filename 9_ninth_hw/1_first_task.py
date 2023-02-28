@@ -5,6 +5,7 @@ I will evaluate the completeness of the described class and will withdraw points
 I want to see clean code. I expect to see clean code with annotations.
 So far, no first-class connections with the second. In all methods, I expect to see docstrings with a sane description.
 """
+import re
 from datetime import date, timedelta, datetime
 
 
@@ -22,23 +23,36 @@ class Apple:
 
     @employees.setter
     def employees(self, new_employees_amount: int):
-        self.__employees = new_employees_amount
+        if new_employees_amount >= 0:
+            self.__employees = new_employees_amount
+        else:
+            print(f'"{new_employees_amount}" is negative, amount should be positive')
 
-    def new_employee(self, new_employees_num: int):
+    def add_employees(self, add_employees_num: int):
         """
-        :param new_employees_num: update number of employees by the new employees
+        :param add_employees_num: update number of employees by the new employees
         :return: new number of employees
         """
-        self.__employees += new_employees_num
-        return self.__employees
+        if add_employees_num == 0:
+            return f'no new employee, amount should be more than {add_employees_num}'
+        if add_employees_num > 0:
+            self.__employees += add_employees_num
+            return self.__employees
+        else:
+            return f'"{add_employees_num}" is negative, amount should be positive'
 
-    def fire_employee(self, fire_employees_num: int):
+    def fire_employees(self, fire_employees_num: int):
         """
         :param fire_employees_num: update number of employees by reduction of employees amount
         :return: new number of employees
         """
-        self.__employees -= fire_employees_num
-        return self.__employees
+        if fire_employees_num == 0:
+            return f'no one was fired, amount should be more than {fire_employees_num}'
+        if fire_employees_num < self.__employees:
+            self.__employees -= fire_employees_num
+            return self.__employees
+        else:
+            return f'amount "{fire_employees_num}" should be less than all employees amount: {self.__employees}'
 
     @property
     def website(self):
@@ -53,7 +67,10 @@ class Apple:
         :param new_website_page: new website page value
         :return: a new website page
         """
-        self.__website = new_website_page
+        if re.match(r'(www.|)[A-z]+.com(\/(ua|it)|)', new_website_page):
+            self.__website = new_website_page
+        else:
+            print(f'{new_website_page} is invalid')
 
     @property
     def address(self):
@@ -126,11 +143,12 @@ if __name__ == '__main__':
     print(apple.address)
     apple.address = "silicone str"
     print(apple.address)
+    apple.employees = -1
     print(apple.employees)
-    print(apple.new_employee(1))
-    print(apple.new_employee(9))
+    print(apple.add_employees(1))
+    print(apple.add_employees(9))
     print(apple.employees)
-    print(apple.fire_employee(2))
+    print(apple.fire_employees(0))
     print(apple.employees)
     print(Apple.business_days_per_current_year())
     print(Apple.work_days_except_holidays(holidays_num=10))

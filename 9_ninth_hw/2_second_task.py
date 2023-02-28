@@ -33,7 +33,10 @@ class Employee:
         :param new_name: new name value
         :return: new name
         """
-        self.__name = new_name
+        if new_name == "":
+            print(f'please, give your employee the name')
+        else:
+            self.__name = new_name
 
     @property
     def second_name(self):
@@ -48,7 +51,10 @@ class Employee:
         :param new_second_name: change value
         :return: edited employee second name
         """
-        self.__second_name = new_second_name
+        if new_second_name == "":
+            print(f'please, give your employee the second name')
+        else:
+            self.__second_name = new_second_name
 
     @property
     def gender(self):
@@ -63,7 +69,10 @@ class Employee:
         :param new_gender: new gender value
         :return: new gender
         """
-        self.__gender = new_gender
+        if new_gender == "":
+            print(f"please, set your employee's gender")
+        else:
+            self.__gender = new_gender
 
     @property
     def hire_date(self):
@@ -78,7 +87,10 @@ class Employee:
         :param new_hire_date: new hire date value
         :return: new hire date
         """
-        self.__hire_date = new_hire_date
+        if new_hire_date == "":
+            print(f"please, set your employee's hire date")
+        else:
+            self.__hire_date = new_hire_date
 
     @property
     def salary(self):
@@ -88,12 +100,15 @@ class Employee:
         return self.__salary
 
     @salary.setter
-    def salary(self, new_salary: str):
+    def salary(self, new_salary: int):
         """
         :param new_salary: new salary value
         :return: new salary
         """
-        self.__salary = new_salary
+        if new_salary < 0:
+            print(f"it's not fear")
+        else:
+            self.__salary = new_salary
 
     @property
     def birth_date(self):
@@ -108,9 +123,15 @@ class Employee:
         :param new_birth_date: new date of birth value
         :return: new date of birth
         """
-        self.__birth_date = new_birth_date
+        birth_date = datetime.strptime(new_birth_date, '%Y-%m-%d')
+        if birth_date.year > 120:
+            print("you are too old")
+        if birth_date.year <= 14:
+            print('you are too yong')
+        else:
+            self.__birth_date = new_birth_date
 
-    def age(self):
+    def get_age(self):
         """
         :return: employee age
         """
@@ -118,7 +139,7 @@ class Employee:
         age = now.year - birthday.year
         return age
 
-    def salary_with_new_year_bonus(self):
+    def add_new_year_bonus_to_salary(self):
         """
         :return: add new year bonus to salary at december
         """
@@ -127,22 +148,28 @@ class Employee:
         else:
             return self.__salary
 
-    def salary_evaluate(self, rise_persent: int):
+    def increase_salary(self, increase_persent: int):
         """
-        :param rise_persent: salary rise persent
+        :param increase_persent: salary rise persent
         :return: employee new salary
         """
-        self.__salary += round(rise_persent / 100 * self.__salary)
+        self.__salary += round(increase_persent / 100 * self.__salary)
         return self.__salary
 
 
 if __name__ == '__main__':
     mia = Employee('Mia', 'Ko', 'f', 2000, '2020-02-02', '1990-01-01')
-    print(mia.name)
-    print(mia.second_name)
-    mia.second_name = 'Fey'
-    print(mia.second_name)
-    print(mia.age())
-    print(mia.salary_with_new_year_bonus())
-    print(mia.salary_evaluate(20))
-    print(mia.salary)
+    # print(mia.name)
+    # mia.name = ""
+    # print(mia.name)
+    # print(mia.second_name)
+    # mia.second_name = 'Fey'
+    # print(mia.second_name)
+    # print(mia.age())
+    # print(mia.salary_with_new_year_bonus())
+    # print(mia.salary_evaluate(20))
+    # print(mia.salary)
+    # mia.salary = -5
+    # print(mia.salary)
+    print(mia.birth_date)
+    mia.birth_date = "v"
