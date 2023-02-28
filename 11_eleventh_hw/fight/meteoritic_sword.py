@@ -58,8 +58,3 @@ class MeteoriticSword(IWeapon, ISword):
         else:
             print("Enemy RIP")
             self._hide()
-
-
-if __name__ == '__main__':
-    sword = MeteoriticSword()
-    sword.fight()
