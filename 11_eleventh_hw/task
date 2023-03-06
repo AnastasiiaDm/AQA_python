@@ -1,0 +1,20 @@
+Please describe an object as we did with Helicopter. Using all OOP postulates. Add comments where you use postulate.
+
+
+For example:
+
+
+
+# Inheritance
+
+class SomeObject(Other_Object)
+
+def __init__()....
+
+# hiding
+
+self.__parameter ...
+
+# incapsulation
+
+@property
