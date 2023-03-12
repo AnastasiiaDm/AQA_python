@@ -12,5 +12,5 @@ class Wagon:
             raise ValueError("Wagon is full")
         self.passengers.append(passenger)
 
-    def __repr__(self):
+    def __str__(self):
         return f"[{self.number}]"

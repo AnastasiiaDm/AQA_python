@@ -13,6 +13,6 @@ class Train:
         self.wagons.append(wagon)
         return self
 
-    def __repr__(self):
+    def __str__(self):
         wagon_reprs = "-".join(repr(wagon) for wagon in self.wagons[::1])
         return f"<={wagon_reprs}"
