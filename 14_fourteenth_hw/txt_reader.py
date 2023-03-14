@@ -3,7 +3,7 @@ from reader import Reader
 
 class TxtReader(Reader):
 
-    def __init__(self, file_path):
+    def __init__(self, file_path: str):
         self.file_path = file_path
 
     def read(self):

@@ -3,7 +3,7 @@ from writer import Writer
 
 class TxtWriter(Writer):
 
-    def __init__(self, file_path):
+    def __init__(self, file_path: str):
         self.file_path = file_path
 
     def write(self, new_data):
