@@ -14,6 +14,8 @@ if __name__ == '__main__':
     proxy = TxtProxy(read_file, add_text)
     print(proxy.read())
     print(proxy.write('\nololo'))
+    print(proxy.read())
+
     print(proxy.write('\nololo'))
 
     print(proxy.read())

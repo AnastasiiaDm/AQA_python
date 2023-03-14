@@ -7,5 +7,5 @@ class TxtWriter(Writer):
         self.file_path = file_path
 
     def write(self, new_data):
-        with open(self.file_path, 'a') as file:
+        with open(self.file_path, 'w') as file:
             file.write(new_data)

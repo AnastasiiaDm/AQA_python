@@ -24,6 +24,4 @@ class TxtProxy(Reader, Writer):
 
         if self.__result != new_data:
             self.__writer.write(new_data)
-            self.read()
-            # self.__new_data = new_data
             self.__is_actual = False
